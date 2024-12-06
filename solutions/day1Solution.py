@@ -27,4 +27,31 @@ def part_one(file_path):
     return sum(np.abs((np.array(col1) - np.array(col2))))
 
 
+def part_two(file_path):
+    """
+    For every value in the left column, check how often it appears in right column and multiply itself by that
+    sum up the resulting values
+
+    :param file_path: data for problem
+    :return: sum of times left items appear in right, multiplied by original value
+    """
+
+    with open(file_path) as file:
+        lines = file.readlines()
+
+    col1 = set()
+    col2 = []
+    for line in lines:
+        left, right = line.split()
+        col1.add(int(left))
+        col2.append(int(right))
+
+    sim_count = 0
+    for number in col1:
+        sim_count += number * col2.count(number)
+
+    return sim_count
+
+
 print(part_one(os.path.join('data', 'day1.txt')))
+print(part_two(os.path.join('data', 'day1.txt')))
