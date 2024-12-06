@@ -1,6 +1,7 @@
 import os
 import numpy as np
 
+
 def part_one(file_path):
     """
     We need to separate the 1st and second columns and sort them smallest -> biggest
@@ -29,7 +30,7 @@ def part_one(file_path):
 
 def part_two(file_path):
     """
-    For every value in the left column, check how often it appears in right column and multiply itself by that
+    For every unique value in the left column, check how often it appears in right column and multiply itself by that
     sum up the resulting values
 
     :param file_path: data for problem
@@ -53,5 +54,7 @@ def part_two(file_path):
     return sim_count
 
 
-print(part_one(os.path.join('data', 'day1.txt')))
-print(part_two(os.path.join('data', 'day1.txt')))
+if __name__ == "__main__":
+    data_path = os.path.join('data', 'day1.txt')
+    print(part_one(data_path))
+    print(part_two(data_path))
