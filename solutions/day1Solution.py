@@ -1,3 +1,6 @@
+import os
+import numpy as np
+
 def part_one(file_path):
     """
     We need to separate the 1st and second columns and sort them smallest -> biggest
@@ -11,5 +14,18 @@ def part_one(file_path):
     with open(file_path) as file:
         lines = file.readlines()
 
-
+    col1 = []
+    col2 = []
     for line in lines:
+        left, right = line.split()
+        col1.append(left)
+        col2.append(right)
+
+    col1.sort()
+    col2.sort()
+
+    # print(col1)
+    # print(col2)
+
+
+part_one(os.path.join('data', 'day1.txt'))
