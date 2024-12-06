@@ -18,14 +18,13 @@ def part_one(file_path):
     col2 = []
     for line in lines:
         left, right = line.split()
-        col1.append(left)
-        col2.append(right)
+        col1.append(int(left))
+        col2.append(int(right))
 
     col1.sort()
     col2.sort()
 
-    # print(col1)
-    # print(col2)
+    return sum(np.abs((np.array(col1) - np.array(col2))))
 
 
-part_one(os.path.join('data', 'day1.txt'))
+print(part_one(os.path.join('data', 'day1.txt')))
